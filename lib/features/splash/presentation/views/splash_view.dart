@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/functions/navigation.dart';
 import 'package:flutter_application_1/core/utils/app_strings.dart';
 import 'package:flutter_application_1/core/utils/app_text_styles.dart';
 import 'package:go_router/go_router.dart';
@@ -13,9 +14,7 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 2), () {
-      GoRouter.of(  context).push('/onBoarding');
-    });
+    delayedNavigation(context, '/onBoarding');
     super.initState();
   }
 
@@ -30,4 +29,10 @@ class _SplashViewState extends State<SplashView> {
       ),
     );
   }
+}
+
+void delayedNavigation(context, String routeName) {
+  Future.delayed(const Duration(seconds: 2), () {
+    navigationPushReplacement(context, routeName);
+  });
 }
