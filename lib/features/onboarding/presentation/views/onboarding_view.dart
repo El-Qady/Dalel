@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/databases/cache/cache_helper.dart';
 import 'package:flutter_application_1/core/functions/navigation.dart';
 import 'package:flutter_application_1/features/onboarding/presentation/functions/build_custom_botton.dart';
 import 'package:flutter_application_1/features/onboarding/presentation/widgets/custom_skip.dart';
@@ -15,7 +16,11 @@ class OnboardingView extends StatefulWidget {
 class _OnboardingViewState extends State<OnboardingView> {
   final PageController _controller = PageController();
   int currentIndex = 0;
-
+  @override
+  void initState() {
+    CacheHelper.putData(key: 'isvisit', value: true);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/databases/cache/cache_helper.dart';
 import 'package:flutter_application_1/core/functions/navigation.dart';
 import 'package:flutter_application_1/core/utils/app_strings.dart';
 import 'package:flutter_application_1/core/utils/app_text_styles.dart';
@@ -13,7 +14,9 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    delayedNavigation(context, '/onBoarding');
+    CacheHelper.getData(key: 'isvisit') == true
+        ? delayedNavigation(context, '/signIn')
+        : delayedNavigation(context, '/onBoarding');
     super.initState();
   }
 
