@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/utils/app_strings.dart';
-import 'package:flutter_application_1/features/onboarding/data/models/onboarding_model.dart';
-import 'package:flutter_application_1/features/onboarding/presentation/widgets/custom_botton.dart';
+import 'package:flutter_application_1/features/onboarding/presentation/functions/build_custom_botton.dart';
 import 'package:flutter_application_1/features/onboarding/presentation/widgets/custom_skip.dart';
 import 'package:flutter_application_1/features/onboarding/presentation/widgets/onboarding_body.dart';
 import 'package:flutter_application_1/features/onboarding/presentation/widgets/smooth_page_indicator.dart';
@@ -16,35 +14,7 @@ class OnboardingView extends StatefulWidget {
 class _OnboardingViewState extends State<OnboardingView> {
   final PageController _controller = PageController();
   int currentIndex = 0;
-    Widget _buildCustomBotton() {
-    return currentIndex == onboardingPages.length - 1
-        ? Column(
-            children: [
-              CustomBotton(
-                buttonText: AppStrings.createAccount,
-                ontap: () {
-                  // Navigate to home screen
-                },
-              ),
-              CustomBotton(
-                buttonText: AppStrings.loginNow,
-                isLast: true,
-                ontap: () {
-                  // Navigate to sign-in screen
-                },
-              ),
-            ],
-          )
-        : CustomBotton(
-            buttonText: AppStrings.next,
-            ontap: () {
-              _controller.nextPage(
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeIn,
-              );
-            },
-          );
-  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +39,10 @@ class _OnboardingViewState extends State<OnboardingView> {
               ),
               SmothPageIndicator(controller: _controller),
               const SizedBox(height: 30),
-              _buildCustomBotton(),
+              buildCustomBotton(
+                controller: _controller,
+                currentIndex: currentIndex,
+              ),
               const SizedBox(height: 10),
             ],
           ),
@@ -78,4 +51,3 @@ class _OnboardingViewState extends State<OnboardingView> {
     );
   }
 }
-
