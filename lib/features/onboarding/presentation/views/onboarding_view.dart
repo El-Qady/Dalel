@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/functions/navigation.dart';
 import 'package:flutter_application_1/features/onboarding/presentation/functions/build_custom_botton.dart';
 import 'package:flutter_application_1/features/onboarding/presentation/widgets/custom_skip.dart';
 import 'package:flutter_application_1/features/onboarding/presentation/widgets/onboarding_body.dart';
@@ -23,7 +24,9 @@ class _OnboardingViewState extends State<OnboardingView> {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
-              CustomSkip(),
+              CustomSkip(ontap: () {
+                navigationPushReplacement(context, '/signUp');
+              }),
               const SizedBox(height: 24),
               OnboardingBody(
                 controller: _controller,
@@ -42,6 +45,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               buildCustomBotton(
                 controller: _controller,
                 currentIndex: currentIndex,
+                context: context,
               ),
               const SizedBox(height: 10),
             ],
