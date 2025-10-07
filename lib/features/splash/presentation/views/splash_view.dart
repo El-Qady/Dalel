@@ -15,7 +15,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     CacheHelper.getData(key: 'isvisit') == true
-        ? delayedNavigation(context, '/signIn')
+        ? delayedNavigation(context, '/signUp')
         : delayedNavigation(context, '/onBoarding');
     super.initState();
   }

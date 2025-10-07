@@ -37,6 +37,7 @@ dependencies:
   go_router: ^16.2.4
   smooth_page_indicator: ^1.2.1
   shared_preferences: ^2.5.3
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:

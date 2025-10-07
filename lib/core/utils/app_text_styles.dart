@@ -21,4 +21,11 @@ abstract class AppTextStyles {
 
     color: Colors.black,
   );
+  static final TextStyle poppins600style28 = TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Poppins',
+
+    color: AppColors.black,
+  );
 }
