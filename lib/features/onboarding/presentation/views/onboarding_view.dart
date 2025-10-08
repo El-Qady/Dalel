@@ -34,7 +34,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               }),
               const SizedBox(height: 24),
               OnboardingBody(
-                controller: _controller,
+                cntr: _controller,
                 onPageChanged: (index) {
                   _controller.animateToPage(
                     index,
