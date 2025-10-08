@@ -8,10 +8,12 @@ class CustomBotton extends StatelessWidget {
     this.ontap,
     required this.buttonText,
     this.isLast = false,
+    this.isgrey = false,
   });
   final VoidCallback? ontap;
   final String buttonText;
   final bool isLast;
+  final bool isgrey;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,7 +22,11 @@ class CustomBotton extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: 56,
         decoration: BoxDecoration(
-          color: isLast ? null : AppColors.primaryColor,
+          color: isgrey
+              ? AppColors.deepGrey
+              : isLast
+              ? null
+              : AppColors.primaryColor,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Center(

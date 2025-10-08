@@ -9,33 +9,31 @@ class TermsAndCheckBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Row(
-        children: [
-          CustomCheckBox(),
-          const SizedBox(width: 8),
-          Text.rich(
-            textAlign: TextAlign.left,
-            TextSpan(
-              text: AppStrings.iHaveAgreeToOur,
-              style: AppTextStyles.poppins400style16.copyWith(
-                fontSize: 12,
-                color: AppColors.deepGrey,
-              ),
-              children: [
-                TextSpan(
-                  text: AppStrings.termsAndCondition,
-                  style: AppTextStyles.poppins400style16.copyWith(
-                    fontSize: 12,
-                    color: AppColors.deepGrey,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ],
+    return Row(
+      children: [
+        CustomCheckBox(),
+        const SizedBox(width: 8),
+        Text.rich(
+          textAlign: TextAlign.left,
+          TextSpan(
+            text: AppStrings.iHaveAgreeToOur,
+            style: AppTextStyles.poppins400style16.copyWith(
+              fontSize: 12,
+              color: AppColors.deepGrey,
             ),
+            children: [
+              TextSpan(
+                text: AppStrings.termsAndCondition,
+                style: AppTextStyles.poppins400style16.copyWith(
+                  fontSize: 12,
+                  color: AppColors.deepGrey,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
