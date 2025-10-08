@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "391722102347",
+    "project_id": "dalel-92924",
+    "storage_bucket": "dalel-92924.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391722102347:android:a64e9515fd5b3fe55f67ce",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd0BiiskSgfeHiZmY9In0z0grEor1Z-4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
