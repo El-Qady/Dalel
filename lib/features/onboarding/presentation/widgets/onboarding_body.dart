@@ -17,7 +17,7 @@ class OnboardingBody extends StatefulWidget {
 
 class _OnboardingBodyState extends State<OnboardingBody> {
   _OnboardingBodyState(this.controller);
-  final PageController controller;
+  PageController controller;
   @override
   Widget build(BuildContext context) {
     return Expanded(
