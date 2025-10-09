@@ -2,6 +2,7 @@ import 'package:flutter_application_1/features/auth/presentation/cubit/authsigni
 import 'package:flutter_application_1/features/auth/presentation/cubit/authsignup_cubit/auth_signup_cubit.dart';
 import 'package:flutter_application_1/features/auth/presentation/views/signin_view.dart';
 import 'package:flutter_application_1/features/auth/presentation/views/signup_view.dart';
+import 'package:flutter_application_1/features/home/presentation/views/home_view.dart';
 import 'package:flutter_application_1/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:flutter_application_1/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,5 +29,6 @@ GoRouter router = GoRouter(
         child: const SignInView(),
       ),
     ),
+    GoRoute(path: '/home', builder: (context, state) => const HomeView()),
   ],
 );

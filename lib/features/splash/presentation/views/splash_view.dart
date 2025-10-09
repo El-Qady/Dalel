@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/databases/cache/cache_helper.dart';
 import 'package:flutter_application_1/core/functions/navigation.dart';
@@ -15,7 +16,9 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     CacheHelper.getData(key: 'isvisit') == true
-        ? delayedNavigation(context, '/signUp')
+        ? FirebaseAuth.instance.currentUser == null
+              ? delayedNavigation(context, '/signUp')
+              : delayedNavigation(context, '/home')
         : delayedNavigation(context, '/onBoarding');
     super.initState();
   }

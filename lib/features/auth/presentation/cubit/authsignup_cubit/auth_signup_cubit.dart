@@ -10,7 +10,7 @@ class AuthSignUpCubit extends Cubit<AuthSignUpCubitState> {
   String? fristName;
   String? lastName;
   bool termsAndConditions = false;
-  bool isPasswordVisible = false;
+  bool isPasswordVisible = true;
   GlobalKey<FormState> signupFormKey = GlobalKey();
   signUpWithEmailAndPassword() async {
     try {
@@ -51,6 +51,7 @@ class AuthSignUpCubit extends Cubit<AuthSignUpCubitState> {
     termsAndConditions = newValue;
     emit(AuthSignupCubitUpdateTermsAndConditionsState());
   }
+
   changePasswordVisibility(bool newValue) {
     isPasswordVisible = newValue;
     emit(AuthSignupCubitPasswordState());

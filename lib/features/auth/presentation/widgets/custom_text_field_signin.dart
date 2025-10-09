@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/utils/app_colors.dart';
 import 'package:flutter_application_1/core/utils/app_strings.dart';
 import 'package:flutter_application_1/core/utils/app_text_styles.dart';
-import 'package:flutter_application_1/features/auth/presentation/cubit/authsignup_cubit/auth_signup_cubit.dart';
+import 'package:flutter_application_1/features/auth/presentation/cubit/authsignin_cubit/auth_signin_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
+class CustomTextFormFieldSignIn extends StatelessWidget {
+  const CustomTextFormFieldSignIn({
     super.key,
     required this.hinttext,
     this.onChanged,
@@ -17,7 +17,7 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String)? onSubmitted;
   @override
   Widget build(BuildContext context) {
-    AuthSignUpCubit authsignupcubit = BlocProvider.of<AuthSignUpCubit>(context);
+    AuthSignInCubitCubit authsignincubit = BlocProvider.of<AuthSignInCubitCubit>(context);
     return Padding(
       padding: const EdgeInsets.only(left: 8, right: 8, top: 32),
       child: TextFormField(
@@ -30,19 +30,21 @@ class CustomTextFormField extends StatelessWidget {
         onChanged: onChanged,
         onFieldSubmitted: onSubmitted,
 
-        obscureText: authsignupcubit.isPasswordVisible ? false : true,
+        obscureText: authsignincubit.isPasswordVisible && hinttext == AppStrings.password
+            ? true
+            : false,
         decoration: InputDecoration(
           suffixIcon: hinttext == AppStrings.password
               ? IconButton(
                   icon: Icon(
-                    authsignupcubit.isPasswordVisible
-                        ? Icons.visibility_outlined
-                        : Icons.visibility_off_outlined,
+                    authsignincubit.isPasswordVisible
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility_outlined,
                   ),
                   color: AppColors.deepBlue,
                   onPressed: () {
-                    authsignupcubit.changePasswordVisibility(
-                      !authsignupcubit.isPasswordVisible,
+                    authsignincubit.changePasswordVisibility(
+                      !authsignincubit.isPasswordVisible,
                     );
                   },
                 )

@@ -18,7 +18,9 @@ class SignupView extends StatelessWidget {
         slivers: [
           const SliverPadding(
             padding: EdgeInsets.only(top: 108),
-            sliver: CustomWelcomeText(),
+            sliver: SliverToBoxAdapter(
+              child: CustomWelcomeText(text: AppStrings.welcome),
+            ),
           ),
           SliverToBoxAdapter(child: Gap(16)),
           SliverToBoxAdapter(child: SignUpForm()),
@@ -36,4 +38,3 @@ class SignupView extends StatelessWidget {
     );
   }
 }
-

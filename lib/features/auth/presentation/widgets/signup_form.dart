@@ -5,7 +5,7 @@ import 'package:flutter_application_1/core/utils/app_colors.dart';
 import 'package:flutter_application_1/core/utils/app_strings.dart';
 import 'package:flutter_application_1/features/auth/presentation/cubit/authsignup_cubit/auth_signup_cubit.dart';
 import 'package:flutter_application_1/features/auth/presentation/cubit/authsignup_cubit/auth_signup_cubit_state.dart';
-import 'package:flutter_application_1/features/auth/presentation/widgets/custom_text_field.dart';
+import 'package:flutter_application_1/features/auth/presentation/widgets/custom_text_field_signup.dart';
 import 'package:flutter_application_1/features/auth/presentation/widgets/terms_and_checkbox.dart';
 import 'package:flutter_application_1/features/onboarding/presentation/widgets/custom_botton.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,7 +39,7 @@ class SignUpForm extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
-                CustomTextFormField(
+                CustomTextFormFieldSignUp(
                   hinttext: AppStrings.fristName,
                   onChanged: (fristName) {
                     authsignupcubit.fristName = fristName;
@@ -48,7 +48,7 @@ class SignUpForm extends StatelessWidget {
                     authsignupcubit.fristName = fristName;
                   },
                 ),
-                CustomTextFormField(
+                CustomTextFormFieldSignUp(
                   hinttext: AppStrings.lastName,
                   onChanged: (lastName) {
                     authsignupcubit.lastName = lastName;
@@ -57,7 +57,7 @@ class SignUpForm extends StatelessWidget {
                     authsignupcubit.lastName = lastName;
                   },
                 ),
-                CustomTextFormField(
+                CustomTextFormFieldSignUp(
                   hinttext: AppStrings.emailAddress,
                   onChanged: (email) {
                     authsignupcubit.emailAddress = email;
@@ -66,7 +66,7 @@ class SignUpForm extends StatelessWidget {
                     authsignupcubit.emailAddress = email;
                   },
                 ),
-                CustomTextFormField(
+                CustomTextFormFieldSignUp(
                   hinttext: AppStrings.password,
                   onChanged: (password) {
                     authsignupcubit.password = password;

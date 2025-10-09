@@ -28,4 +28,11 @@ abstract class AppTextStyles {
 
     color: AppColors.black,
   );
+  static final TextStyle saira700style32 = TextStyle(
+    fontSize: 32,
+    fontWeight: FontWeight.w700,
+    fontFamily: 'Poppins',
+
+    color: Colors.white,
+  );
 }

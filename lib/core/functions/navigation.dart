@@ -8,6 +8,6 @@ void navigationPush(context, String routeName) {
   GoRouter.of(context).push(routeName);
 }
 
-void navigationPop(context, String routeName) {
+void navigationPop(context) {
   GoRouter.of(context).pop();
 }
