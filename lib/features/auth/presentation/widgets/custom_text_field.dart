@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/utils/app_colors.dart';
 import 'package:flutter_application_1/core/utils/app_strings.dart';
 import 'package:flutter_application_1/core/utils/app_text_styles.dart';
+import 'package:flutter_application_1/features/auth/presentation/cubit/authsignup_cubit/auth_signup_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -15,6 +17,7 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String)? onSubmitted;
   @override
   Widget build(BuildContext context) {
+    AuthSignUpCubit authsignupcubit = BlocProvider.of<AuthSignUpCubit>(context);
     return Padding(
       padding: const EdgeInsets.only(left: 8, right: 8, top: 32),
       child: TextFormField(
@@ -26,13 +29,30 @@ class CustomTextFormField extends StatelessWidget {
         },
         onChanged: onChanged,
         onFieldSubmitted: onSubmitted,
-        obscureText: hinttext == AppStrings.password ? true : false,
+
+        obscureText: authsignupcubit.isPasswordVisible ? false : true,
         decoration: InputDecoration(
+          suffixIcon: hinttext == AppStrings.password
+              ? IconButton(
+                  icon: Icon(
+                    authsignupcubit.isPasswordVisible
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
+                  ),
+                  color: AppColors.deepBlue,
+                  onPressed: () {
+                    authsignupcubit.changePasswordVisibility(
+                      !authsignupcubit.isPasswordVisible,
+                    );
+                  },
+                )
+              : null,
           labelText: hinttext,
           labelStyle: AppTextStyles.poppins500style24.copyWith(
             color: AppColors.deepGrey,
             fontSize: 16,
           ),
+
           border: customBorderStyle(),
           focusedBorder: customBorderStyle(),
           enabledBorder: customBorderStyle(),

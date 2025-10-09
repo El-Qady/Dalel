@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/functions/flutter_toast.dart';
+import 'package:flutter_application_1/core/functions/navigation.dart';
 import 'package:flutter_application_1/core/utils/app_colors.dart';
 import 'package:flutter_application_1/core/utils/app_strings.dart';
 import 'package:flutter_application_1/features/auth/presentation/cubit/authsignup_cubit/auth_signup_cubit.dart';
@@ -8,7 +9,6 @@ import 'package:flutter_application_1/features/auth/presentation/widgets/custom_
 import 'package:flutter_application_1/features/auth/presentation/widgets/terms_and_checkbox.dart';
 import 'package:flutter_application_1/features/onboarding/presentation/widgets/custom_botton.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -18,8 +18,15 @@ class SignUpForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthSignUpCubit, AuthSignUpCubitState>(
       listener: (context, state) {
+        if (state is AuthSignupCubitSuccessState) {
+          flutterToastError(
+            'successfully ,Please verify your email',
+            color: Colors.green,
+          );
+          navigationPushReplacement(context, '/signIn');
+        }
         if (state is AuthSignupCubitFailureState) {
-          flutterToastError(state);
+          flutterToastError(state.errorMessage);
         }
       },
       builder: (context, state) {
@@ -93,6 +100,4 @@ class SignUpForm extends StatelessWidget {
       },
     );
   }
-
-  
 }
